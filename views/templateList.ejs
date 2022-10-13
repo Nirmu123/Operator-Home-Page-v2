@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Lists</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div class = "header">
+        <img class = "logo" src="/static/renault_nissan_logo.png">
+        <h4 class = "pipe"> > </h4>
+        <h4 class="product-name">Quality Control</h4>
+    </div>
+<div class = "checklist-container">
+    <h4 class = "checklist-templates">Template list -</h4>
+    <div class = "checklist-inner-container">
+<% if(templateList.length) { %>
+    <% templateList.forEach(function(template) { %>
+                <div class = "checklist-template-panel">
+                    <h3 class="checklist-template-panel-text">
+                        <%= template.chklst_name %>
+                    </h3>
+                    <h3 class="checklist-template-panel-text">|</h3>
+                    <h3 class="checklist-template-panel-text">
+                        <%= template.station_name %>
+                    </h3>
+                    <h3 class="checklist-template-panel-text">|</h3>
+                    <h3 class="checklist-template-panel-text"># Tasks:<%= template.total_no_instruction %>
+                    </h3>
+                    <button class="checklist-template-panel-button" id="<%= template.chklst_id %>">Start Inspection</button>
+                </div>
+    <% }) %>
+<% } else { %>
+    No templates available!!!!
+    <% } %>
+    </div>
+</div>
+<script type="text/javascript" src="/script/script.js"></script>
+</body>
+</html>
